@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API del Cuaderno de la Abuela</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="icon" href="img/logo.png" type="image/png">
+</head>
+<body>
+    <h1>API de Recetas de la Abuela</h1>
+    <p>
+        Bienvenido a la API de Recetas de la Abuela.<br>
+        Esta API permite registrar usuarios y crear recetas para compartir con familiares y amigos.
+    </p>
+
+    <h2>Endpoints principales</h2>
+    <ul>
+        <li><a href="/api/users/register">/api/users/register</a> - Registrar usuario (<strong>POST</strong>)</li>
+        <li><a href="/api/users/login">/api/users/login</a> - Iniciar sesión (<strong>POST</strong>)</li>
+        <li><a href="/api/users/profile">/api/users/profile</a> - Ver perfil de usuario (<strong>GET</strong>)</li>
+        <li><a href="/api/recipes">/api/recipes</a> - Listar recetas (<strong>GET</strong>) / Crear receta (<strong>POST</strong>)</li>
+        <li><a href="/api/recipes/search?q=palabra">/api/recipes/search?q=palabra</a> - Buscar recetas (<strong>GET</strong>)</li>
+        <li><a href="/api/recipes/:id">/api/recipes/:id</a> - Ver receta por ID (<strong>GET</strong>)</li>
+        <li><a href="/api/recipes/:id">/api/recipes/:id</a> - Actualizar receta (<strong>PUT</strong>)</li>
+        <li><a href="/api/recipes/:id">/api/recipes/:id</a> - Eliminar receta (<strong>DELETE</strong>)</li>
+        <li><a href="/api/groups">/api/groups</a> - Listar grupos (<strong>GET</strong>) / Crear grupo (<strong>POST</strong>)</li>
+        <li><a href="/api/groups/:id">/api/groups/:id</a> - Ver grupo por ID (<strong>GET</strong>)</li>
+        <li><a href="/api/groups/:id">/api/groups/:id</a> - Eliminar grupo (<strong>DELETE</strong>)</li>
+    </ul>
+
+    <footer>
+        <hr>
+        <p><strong>Nombre y Apellido:</strong> Nicolás Regina</p>
+        <p><strong>Nombre de la materia:</strong> Aplicaciones Híbridas</p>
+        <p><strong>Nombre del docente:</strong> Marcos Galbán, Camila Belén</p>
+        <p><strong>Comisión:</strong> DWN4AV</p>
+    </footer>
+</body>
+</html>
