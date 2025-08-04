@@ -1,3 +1,4 @@
+
 import jwt from "jsonwebtoken"
 import User from "../models/userModel.js"
 
@@ -13,8 +14,8 @@ export const authenticateJWT = async (req, res, next) => {
 
         const decoded = jwt.verify(token, process.env.JWT_SECRET)
 
-        // Obtener el usuario y sus grupos
-        const user = await User.findById(decoded.id).select("groups")
+        // Obtener el usuario completo
+        const user = await User.findById(decoded.id)
 
         if (!user) {
             return res.status(401).json({ message: "Usuario no válido" })
@@ -24,6 +25,7 @@ export const authenticateJWT = async (req, res, next) => {
         req.user = {
             id: decoded.id,
             groups: user.groups,
+            role: user.role,
         }
 
         next()
@@ -34,4 +36,12 @@ export const authenticateJWT = async (req, res, next) => {
 
         return res.status(401).json({ message: "Token no válido" })
     }
+}
+
+// Middleware para verificar si el usuario es admin
+export const isAdmin = (req, res, next) => {
+    if (req.user && req.user.role === "admin") {
+        return next();
+    }
+    return res.status(403).json({ message: "Acceso solo para administradores" });
 }

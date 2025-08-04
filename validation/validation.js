@@ -23,6 +23,32 @@ export const validateUser = (data) => {
     return schema.validate(data)
 }
 
+// Validación para registro de usuario por admin
+export const validateUserByAdmin = (data) => {
+    const schema = Joi.object({
+        name: Joi.string().min(2).max(50).required().messages({
+            "string.min": "El nombre debe tener al menos 2 caracteres",
+            "string.max": "El nombre no puede tener más de 50 caracteres",
+            "any.required": "El nombre es obligatorio",
+        }),
+        email: Joi.string().email().required().messages({
+            "string.email": "El email debe ser válido",
+            "any.required": "El email es obligatorio",
+        }),
+        password: Joi.string().min(6).required().messages({
+            "string.min": "La contraseña debe tener al menos 6 caracteres",
+            "any.required": "La contraseña es obligatoria",
+        }),
+        bio: Joi.string().max(200).allow("").optional(),
+        profilePicture: Joi.string().allow("").optional(),
+        role: Joi.string().valid("user", "admin").optional().messages({
+            "any.only": "El rol debe ser 'user' o 'admin'",
+        }),
+    })
+
+    return schema.validate(data)
+}
+
 // Validación para login
 export const validateLogin = (data) => {
     const schema = Joi.object({

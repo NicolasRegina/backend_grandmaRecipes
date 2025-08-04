@@ -32,6 +32,11 @@ const userSchema = new mongoose.Schema(
             maxlength: 200,
             default: "",
         },
+        role: {
+            type: String,
+            enum: ["user", "admin"],
+            default: "user",
+        },
         groups: [
             {
                 type: mongoose.Schema.Types.ObjectId,
