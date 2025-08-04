@@ -12,7 +12,10 @@ dotenv.config()
 const app = express()
 
 app.use(cors({
-    origin: "http://localhost:5173", // solo permite requests desde tu frontend
+    origin: [
+        "http://localhost:5173",
+        "https://grandma-recipes.vercel.app"
+    ],
     credentials: true
 }));
 
